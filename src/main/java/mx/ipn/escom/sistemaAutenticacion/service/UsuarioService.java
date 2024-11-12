@@ -8,6 +8,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioService {
 
+    public Usuario findById(Long id) {
+        return usuarioRepository.findById(id).orElse(null);
+    }
+    
+    public void save(Usuario usuario) {
+        usuarioRepository.save(usuario);
+    }
+    
     @Autowired
     private UsuarioRepository usuarioRepository;
 

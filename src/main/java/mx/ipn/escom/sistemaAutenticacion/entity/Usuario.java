@@ -21,6 +21,18 @@ public class Usuario {
     @Column(nullable = false)
     private String password;
 
+    @Lob
+    @Column(name = "imagen")
+    private byte[] imagen;
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+    
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "usuario_roles",

@@ -1,5 +1,7 @@
 package mx.ipn.escom.sistemaAutenticacion.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,19 @@ public class UsuarioController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @PostMapping("/usuario/uploadImagen")
+    public String uploadImagen(@RequestParam("file") MultipartFile file, @RequestParam("usuarioId") Long usuarioId) {
+    try {
+        Usuario usuario = usuarioService.findById(usuarioId);
+        usuario.setImagen(file.getBytes());
+        usuarioService.save(usuario);
+        return "redirect:/profile"; // Redirige al perfil del usuario después de cargar la imagen
+    } catch (IOException e) {
+        e.printStackTrace();
+        return "error";
+    }
+    }
+
 
     @PostMapping("/user/register")
     public String registrarUsuario(@ModelAttribute Usuario usuario) {
