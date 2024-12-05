@@ -11,13 +11,5 @@ public class LoginController {
         return "login"; 
     }
 
-    @GetMapping("/home")
-    public String home() {
-        return "home";  
-    }
-
-    @GetMapping("/accessDenied")
-    public String accessDenied() {
-        return "accessDenied"; 
-    }
+    // Remove /home mapping from LoginController
 }

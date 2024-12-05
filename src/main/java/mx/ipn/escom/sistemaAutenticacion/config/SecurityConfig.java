@@ -1,18 +1,16 @@
 package mx.ipn.escom.sistemaAutenticacion.config;
-
 import mx.ipn.escom.sistemaAutenticacion.service.CustomAuthenticationSuccessHandler;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 
 @Configuration
 public class SecurityConfig {
 
-    // Bean para el CustomAuthenticationSuccessHandler
     @Bean
     public CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler() {
         return new CustomAuthenticationSuccessHandler();
@@ -23,27 +21,27 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/admin").hasRole("ADMIN")
-                .requestMatchers("/home").authenticated()
-                .anyRequest().permitAll()
+                .requestMatchers("/register", "/login").permitAll()  // Permitir acceso sin autenticación a login y registro
+                .requestMatchers("/admin").hasRole("ADMIN")          // Solo los admins pueden acceder a /admin
+                .requestMatchers("/home").authenticated()            // Cualquier usuario autenticado puede acceder a /home
+                .anyRequest().authenticated()                        // Otras rutas deben estar autenticadas
             )
             .formLogin((form) -> form
-                .loginPage("/login")
+                .loginPage("/login")                               // Página de login personalizada
                 .successHandler(customAuthenticationSuccessHandler())  // Usar el handler personalizado
                 .permitAll()
             )
             .logout((logout) -> logout.permitAll())
             .exceptionHandling()
-            .accessDeniedHandler(new AccessDeniedHandlerImpl())  // Manejador de acceso denegado
-            .accessDeniedPage("/accessDenied")  // Redirigir a la página de acceso denegado
+            .accessDeniedPage("/accessDenied")  // Página de acceso denegado
             .and()
-            .csrf().disable();
+            .csrf().disable();  // Deshabilitar CSRF si no es necesario
 
         return http.build();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();  // Usar un codificador adecuado
     }
 }

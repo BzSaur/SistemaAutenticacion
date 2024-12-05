@@ -1,11 +1,10 @@
 package mx.ipn.escom.sistemaAutenticacion.entity;
 
 import jakarta.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "roles") // Map to the correct table name
 public class Rol {
 
     @Id
@@ -16,10 +15,8 @@ public class Rol {
     private String nombre;
 
     @ManyToMany(mappedBy = "roles")
-    private Set<Usuario> usuarios = new HashSet<>();
-
+    private Set<Usuario> usuarios;
     // Getters y setters
-
     public Long getId() {
         return id;
     }

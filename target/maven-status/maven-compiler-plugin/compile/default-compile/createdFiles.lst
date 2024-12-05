@@ -5,9 +5,10 @@ mx/ipn/escom/sistemaAutenticacion/service/CustomUserDetails.class
 mx/ipn/escom/sistemaAutenticacion/controller/UsuarioController.class
 mx/ipn/escom/sistemaAutenticacion/entity/Rol.class
 mx/ipn/escom/sistemaAutenticacion/service/DatabaseConnectionTest.class
-mx/ipn/escom/sistemaAutenticacion/controller/HelloController.class
+mx/ipn/escom/sistemaAutenticacion/controller/HomeController.class
 mx/ipn/escom/sistemaAutenticacion/repository/UsuarioRepository.class
 mx/ipn/escom/sistemaAutenticacion/entity/Usuario.class
+mx/ipn/escom/sistemaAutenticacion/controller/RegistroController.class
 mx/ipn/escom/sistemaAutenticacion/service/UsuarioService.class
 mx/ipn/escom/sistemaAutenticacion/SistemaAutenticacionApplication.class
 mx/ipn/escom/sistemaAutenticacion/SistemaAutenticacion/DatabaseConnectionRunner.class

@@ -6,7 +6,7 @@
     <title>Registro Exitoso</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #f4f4f9;
             display: flex;
             justify-content: center;
@@ -18,44 +18,57 @@
         }
 
         .container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            color: white;
             text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            color: #333;
+        }
+
+        .user-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
         }
 
         h1 {
-            margin-bottom: 20px;
-            color: #fff;
+            color: #4CAF50;
+            margin-bottom: 10px;
         }
 
         p {
-            font-size: 16px;
+            margin: 8px 0;
         }
 
-        a {
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
             color: #4CAF50;
             text-decoration: none;
-            display: block;
-            margin-top: 15px;
+            font-weight: bold;
         }
 
-        a:hover {
+        .back-link:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Registro exitoso</h1>
-        <p>¡Te has registrado correctamente! Aquí están tus datos:</p>
-        <p><strong>Nombre:</strong> <span th:text="${usuario.nombre}"></span></p>
-        <p><strong>Email:</strong> <span th:text="${usuario.email}"></span></p>
-        <a href="/login">Ir a login</a>
+        <h1>¡Registro Exitoso!</h1>
+
+        <!-- Imagen del usuario -->
+        <img src="data:image/jpeg;base64,[[${imagenBase64}]]" alt="Imagen de usuario" class="user-image" />
+
+        <!-- Datos del usuario -->
+        <p><strong>Nombre de usuario:</strong> [[${usuario.nombre}]]</p>
+        <p><strong>Email:</strong> [[${usuario.email}]]</p>
+
+        <a href="/login" class="back-link">Ir a la página de inicio de sesión</a>
     </div>
 </body>
 </html>
-
-    <

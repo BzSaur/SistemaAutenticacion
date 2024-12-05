@@ -2,12 +2,9 @@ package mx.ipn.escom.sistemaAutenticacion.service;
 
 import mx.ipn.escom.sistemaAutenticacion.entity.Usuario;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 public class CustomUserDetails implements UserDetails {
 
@@ -19,12 +16,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Convertir los roles del usuario a GrantedAuthority
-        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        usuario.getRoles().forEach(rol -> {
-            authorities.add(new SimpleGrantedAuthority(rol.getNombre())); // Aquí asume que 'nombre' es el nombre del rol
-        });
-        return authorities;
+        return null;  // Define roles si es necesario
     }
 
     @Override
@@ -34,7 +26,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return usuario.getNombre();
+        return usuario.getEmail();
     }
 
     @Override

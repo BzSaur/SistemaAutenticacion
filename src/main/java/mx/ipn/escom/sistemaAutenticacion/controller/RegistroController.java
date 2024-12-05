@@ -6,29 +6,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class RegistroController {
 
     @Autowired
-    private UsuarioService usuarioService;  // Inyecta el servicio de usuario para guardar en la BD
+    private UsuarioService usuarioService;
 
     @GetMapping("/register")
-    public String showRegistrationForm(Model model) {
-        model.addAttribute("usuario", new Usuario());
+    public String showRegisterForm() {
         return "register";
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("usuario") Usuario usuario, Model model) {
-        // Lógica para registrar al usuario en la base de datos
-        usuarioService.registrarUsuario(usuario);
+    public String registerUser(Usuario usuario, 
+                               @RequestParam("imagen") MultipartFile imagen,
+                               Model model) {
+        try {
+            // Lógica de registro (guardar usuario, convertir imagen, etc.)
+            usuarioService.save(usuario, imagen);  // Asegúrate de que el servicio maneje la lógica de guardado
 
-        // Añadir el usuario al modelo para mostrar en la vista de registro exitoso
-        model.addAttribute("usuario", usuario);
+            // Añadir datos para mostrar en la vista de éxito
+            model.addAttribute("usuario", usuario);
+            model.addAttribute("imagenBase64", "");  // Aquí puedes convertir la imagen en base64 y añadirla si es necesario
 
-        return "registroExitoso";  // Redirige a la página de registro exitoso
+            return "registroExitoso"; // Redirige a la vista de registro exitoso
+        } catch (Exception e) {
+            model.addAttribute("error", "Hubo un error al registrar el usuario.");
+            return "register";
+        }
     }
 }

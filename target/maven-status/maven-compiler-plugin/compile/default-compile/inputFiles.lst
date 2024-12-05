@@ -1,8 +1,9 @@
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/SistemaAutenticacion/DatabaseConnectionRunner.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/SistemaAutenticacionApplication.java
+/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/config/AppConfig.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/config/SecurityConfig.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/AdminController.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/HelloController.java
+/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/HomeController.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/LoginController.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/RegistroController.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/UsuarioController.java

@@ -1,18 +1,17 @@
 package mx.ipn.escom.sistemaAutenticacion.entity;
 
 import jakarta.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuarios") // Map to the correct table name
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String nombre;
 
     @Column(nullable = false, unique = true)
@@ -21,28 +20,21 @@ public class Usuario {
     @Column(nullable = false)
     private String password;
 
-    @Lob
-    @Column(name = "imagen")
-    private byte[] imagen;
+    @Column(nullable = false)
+    private Boolean enabled;
 
-    public byte[] getImagen() {
-        return imagen;
-    }
-    
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }
+    @Lob
+    private byte[] imagen;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "usuario_roles",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "rol_id")
+        name = "usuario_roles", // Correct join table name
+        joinColumns = @JoinColumn(name = "usuario_id"),
+        inverseJoinColumns = @JoinColumn(name = "rol_id")
     )
-    private Set<Rol> roles = new HashSet<>();
+    private Set<Rol> roles;
 
     // Getters y setters
-
     public Long getId() {
         return id;
     }
@@ -59,6 +51,14 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -67,12 +67,12 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public byte[] getImagen() {
+        return imagen;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 
     public Set<Rol> getRoles() {
