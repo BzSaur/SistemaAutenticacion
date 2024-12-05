@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Búsqueda de Libros y Autores</title>
+    <title>Resultados de Libros</title>
     <style>
         /* Estilos del login copiados aquí */
         * {
@@ -66,17 +65,13 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Bienvenido a la página de inicio</h1>
-        <!-- Formulario para buscar libros -->
-        <form action="/searchBooks" method="post">
-            <input type="text" name="searchQuery" placeholder="Buscar libros">
-            <button type="submit">Buscar Libros</button>
-        </form>
-        <!-- Formulario para buscar autores -->
-        <form action="/searchAuthors" method="post">
-            <input type="text" name="authorName" placeholder="Buscar autores">
-            <button type="submit">Buscar Autores</button>
-        </form>
+        <h1>Book Results</h1>
+        <ul th:if="${books}">
+            <li th:each="book : ${books}">
+                <span th:text="${book.get('title')}"></span>
+                </li>
+        </ul>
+        <p th:if="${books.isEmpty()}">No books found</p>
     </div>
 </body>
 </html>
