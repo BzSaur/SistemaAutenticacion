@@ -22,7 +22,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/register", "/login").permitAll()  // Permitir acceso sin autenticación a login y registro
-                .requestMatchers("/admin").hasRole("ADMIN")          // Solo los admins pueden acceder a /admin
+                .requestMatchers("/admin").hasAuthority("ROLE_ADMIN")           // Solo los admins pueden acceder a /admin
                 .requestMatchers("/home").authenticated()            // Cualquier usuario autenticado puede acceder a /home
                 .anyRequest().authenticated()                        // Otras rutas deben estar autenticadas
             )

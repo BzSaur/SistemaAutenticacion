@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Autores</title>
     <style>
-        /* Estilos del login copiados aquí */
         * {
             margin: 0;
             padding: 0;
@@ -18,9 +16,6 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1552302896-5c1349f3337d?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
         }
         .form-container {
             background-color: rgba(0, 0, 0, 0.7);
@@ -35,42 +30,18 @@
             color: white;
             text-align: center;
         }
-        input[type="text"], input[type="email"], input[type="password"] {
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.2);
+        .results ul {
+            list-style: none;
+            padding: 0;
+        }
+        .results li {
+            margin-bottom: 15px;
             color: white;
-            margin-bottom: 10px;
-        }
-        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
-            outline: none;
-            border: 2px solid #4CAF50;
-        }
-        button {
-            padding: 12px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h1>Resultados de la búsqueda de autores</h1>
-        <ul th:if="${authors}">
-            <li th:each="author : ${authors}" th:text="${author}"></li>
-        </ul>
-        <p th:if="${#lists.isEmpty(authors)}">No se encontraron autores.</p>
-    </div>
+    <h1>Author Search Results</h1>
+    <pre th:text="${json}"></pre> <!-- Muestra el JSON bruto aquí -->
 </body>
 </html>

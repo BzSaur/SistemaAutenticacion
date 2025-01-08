@@ -3,12 +3,16 @@
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/config/AppConfig.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/config/SecurityConfig.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/AdminController.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/HomeController.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/LoginController.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/RegistroController.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/UsuarioController.java
+/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/ViewController.java
+/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Favorito.java
+/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Historial.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Rol.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Usuario.java
+/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/repository/FavoritoRepository.java
+/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/repository/HistorialRepository.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/repository/RolRepository.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/repository/UsuarioRepository.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/service/CustomAuthenticationSuccessHandler.java

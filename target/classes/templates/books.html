@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Resultados de Libros</title>
     <style>
-        /* Estilos del login copiados aquí */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f9;
@@ -17,12 +17,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1552302896-5c1349f3337d?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-image: url('https://images.unsplash.com/photo-1552302896-5c1349f3337d?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Aquí puedes poner una URL de fondo */
             background-size: cover;
             background-position: center;
         }
+
         .form-container {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo translúcido */
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -34,7 +35,23 @@
             color: white;
             text-align: center;
         }
-        input[type="text"], input[type="email"], input[type="password"] {
+
+        h1 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        label {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 5px;
+            text-align: left;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
             padding: 10px;
             border: none;
             border-radius: 4px;
@@ -44,10 +61,14 @@
             color: white;
             margin-bottom: 10px;
         }
-        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
             outline: none;
-            border: 2px solid #4CAF50;
+            border: 2px solid #4CAF50; /* Resaltar con color verde */
         }
+
         button {
             padding: 12px;
             background-color: #4CAF50;
@@ -58,8 +79,20 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         button:hover {
             background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            display: block;
+            margin-top: 15px;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
