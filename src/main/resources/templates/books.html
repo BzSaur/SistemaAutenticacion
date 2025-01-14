@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados de Libros</title>
     <style>
         * {
@@ -9,15 +10,20 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f9;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
         }
-        .form-container {
+
+        .results-container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 40px;
             border-radius: 10px;
@@ -25,34 +31,54 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            width: 350px;
-            max-width: 100%;
+            width: 90%;
+            max-width: 600px;
             color: white;
             text-align: center;
         }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
         .results ul {
             list-style: none;
             padding: 0;
+            text-align: left;
         }
+
         .results li {
             margin-bottom: 15px;
-            color: white;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
         }
-        .results img {
-            border-radius: 50%;
-            margin-right: 10px;
+
+        .book-title {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .no-results {
+            font-style: italic;
+            color: #ccc;
         }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h1>Book Results</h1>
-        <ul th:if="${books}">
-            <li th:each="book : ${books}">
-                <span th:text="${book.get('title')}"></span>
+    <div class="results-container">
+        <h1>Resultados de Libros</h1>
+        <div class="results">
+            <ul th:if="${books != null and !books.isEmpty()}">
+                <li th:each="book : ${books}">
+                    <span class="book-title" th:text="${book.get('title')}"></span>
+                    <br>
+                    <small th:if="${book.get('author') != null}" th:text="'Autor: ' + ${book.get('author')}"></small>
                 </li>
-        </ul>
-        <p th:if="${books.isEmpty()}">No books found</p>
+            </ul>
+            <p class="no-results" th:if="${books == null or books.isEmpty()}">No se encontraron libros</p>
+        </div>
     </div>
 </body>
 </html>
