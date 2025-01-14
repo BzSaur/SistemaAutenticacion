@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Perfil de Usuario</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://images.unsplash.com/photo-1515605576055-c5a4d6a3a6dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+        }
+        .form-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin-top: 20px;
+            display: block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
+<<<<<<< Updated upstream
     <h1>Editar Perfil</h1>
     <form action="/updateProfile" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="${usuario.id}">
@@ -24,6 +87,25 @@
     <div>
         <h2>Imagen de Perfil Actual:</h2>
         <img src="data:image/png;base64,${usuario.imagen}" alt="Imagen de perfil" />
+=======
+    <div class="form-container">
+        <h1>Editar Perfil</h1>
+        <form th:action="@{/updateProfile}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" th:value="${usuario.id}">
+            
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" th:value="${usuario.username}" placeholder="Nombre de usuario">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:value="${usuario.email}" placeholder="Correo electrónico">
+            
+            <label for="file">Imagen de Perfil:</label>
+            <input type="file" id="file" name="imagen">
+            
+            <button type="submit">Actualizar</button>
+        </form>
+        <a th:href="@{/logout}">Cerrar Sesión</a>
+>>>>>>> Stashed changes
     </div>
 </body>
 </html>

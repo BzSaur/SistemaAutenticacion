@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "usuarios") // Map to the correct table name
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
@@ -28,13 +28,13 @@ public class Usuario {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-        name = "usuario_roles", // Correct join table name
+        name = "usuario_roles",
         joinColumns = @JoinColumn(name = "usuario_id"),
         inverseJoinColumns = @JoinColumn(name = "rol_id")
     )
     private Set<Rol> roles;
 
-    // Getters y setters
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -51,6 +51,14 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -59,12 +67,12 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public byte[] getImagen() {

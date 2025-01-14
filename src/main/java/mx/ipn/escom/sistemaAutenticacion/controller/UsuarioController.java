@@ -1,7 +1,24 @@
 package mx.ipn.escom.sistemaAutenticacion.controller;
 
+<<<<<<< Updated upstream
 import java.util.HashSet;
 import java.util.Set;
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import mx.ipn.escom.sistemaAutenticacion.entity.Favorito;
+import mx.ipn.escom.sistemaAutenticacion.entity.Historial;
+import mx.ipn.escom.sistemaAutenticacion.entity.Usuario;
+import mx.ipn.escom.sistemaAutenticacion.service.UsuarioService;
+import org.springframework.ui.Model;
+
+
+import java.security.Principal;
+import java.util.List;
+>>>>>>> Stashed changes
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -86,4 +103,33 @@ public class UsuarioController {
         
         return "authors";  // Vista que mostrará los autores encontrados
     }
+    @GetMapping("/profile")
+public String profile(Model model, Principal principal) {
+    Usuario usuario = usuarioService.findByNombre(principal.getName());
+    if (usuario == null) {
+        throw new RuntimeException("Usuario no encontrado.");
+    }
+    model.addAttribute("usuario", usuario);
+    return "profile";
+}
+
+    @PostMapping("/updateProfile")
+public String updateProfile(@ModelAttribute Usuario usuario, @RequestParam("imagen") MultipartFile imagen, RedirectAttributes redirectAttributes) {
+    try {
+        Usuario existingUsuario = usuarioService.getUserById(usuario.getId()).orElseThrow(() -> new RuntimeException("Usuario no encontrado."));
+        existingUsuario.setNombre(usuario.getNombre());
+        existingUsuario.setEmail(usuario.getEmail());
+
+        if (imagen != null && !imagen.isEmpty()) {
+            existingUsuario.setImagen(imagen.getBytes());
+        }
+
+        usuarioService.saveUser(existingUsuario, null);
+        redirectAttributes.addFlashAttribute("success", "Perfil actualizado correctamente.");
+        return "redirect:/profile";
+    } catch (Exception e) {
+        redirectAttributes.addFlashAttribute("error", "Error al actualizar el perfil: " + e.getMessage());
+        return "redirect:/profile";
+    }
+}
 }

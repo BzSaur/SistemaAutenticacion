@@ -8,8 +8,12 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login() {
-        return "login"; 
+        return "login"; // Verifica que login.html exista
     }
+<<<<<<< Updated upstream
 
     // Remove /home mapping from LoginController
 }
+=======
+}
+>>>>>>> Stashed changes

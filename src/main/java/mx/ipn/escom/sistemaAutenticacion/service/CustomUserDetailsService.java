@@ -3,13 +3,16 @@ package mx.ipn.escom.sistemaAutenticacion.service;
 import mx.ipn.escom.sistemaAutenticacion.entity.Usuario;
 import mx.ipn.escom.sistemaAutenticacion.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -19,12 +22,15 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Find user by the correct field 'nombre' (username)
         Usuario usuario = usuarioRepository.findByNombre(username);
         if (usuario == null) {
             throw new UsernameNotFoundException("Usuario no encontrado: " + username);
         }
-        // Use the correct method to get the name (either 'getNombre()' or 'getUsername()')
-        return new User(usuario.getNombre(), usuario.getPassword(), new ArrayList<>());
+
+        List<GrantedAuthority> authorities = usuario.getRoles().stream()
+    .map(rol -> new SimpleGrantedAuthority("ROLE_" + rol.getNombre()))
+    .collect(Collectors.toList());
+
+        return new User(usuario.getNombre(), usuario.getPassword(), authorities);
     }
 }
