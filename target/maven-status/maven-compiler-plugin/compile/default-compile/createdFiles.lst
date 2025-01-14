@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 mx/ipn/escom/sistemaAutenticacion/controller/AdminController.class
 mx/ipn/escom/sistemaAutenticacion/repository/RolRepository.class
 mx/ipn/escom/sistemaAutenticacion/config/SecurityConfig.class
@@ -16,5 +15,3 @@ mx/ipn/escom/sistemaAutenticacion/SistemaAutenticacion/DatabaseConnectionRunner.
 mx/ipn/escom/sistemaAutenticacion/service/CustomAuthenticationSuccessHandler.class
 mx/ipn/escom/sistemaAutenticacion/controller/LoginController.class
 mx/ipn/escom/sistemaAutenticacion/service/CustomUserDetailsService.class
-=======
->>>>>>> Stashed changes

@@ -3,33 +3,16 @@
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/config/AppConfig.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/config/SecurityConfig.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/AdminController.java
-<<<<<<< Updated upstream
-=======
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/ApiBusquedaController.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/BookController.java
->>>>>>> Stashed changes
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/HomeController.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/LoginController.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/RegistroController.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/UsuarioController.java
-<<<<<<< Updated upstream
-=======
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/controller/ViewController.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Autor.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Favorito.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Historial.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Libro.java
->>>>>>> Stashed changes
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Rol.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/entity/Usuario.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/repository/RolRepository.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/repository/UsuarioRepository.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/security/CustomPrincipal.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/service/AuthorService.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/service/BookService.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/service/CustomAuthenticationSuccessHandler.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/service/CustomUserDetails.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/service/CustomUserDetailsService.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/service/DatabaseConnectionTest.java
-/home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/service/LibroService.java
 /home/agmzj/Documentos/GitHub/Sistema_Autenticacion/src/main/java/mx/ipn/escom/sistemaAutenticacion/service/UsuarioService.java
